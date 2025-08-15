@@ -13,10 +13,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Mazagk - Wear Your Mood | Premium Custom Apparel',
-    template: '%s | Mazagk'
+    default: 'Homeware - Wear Your Mood | Premium Custom Apparel',
+    template: '%s | Homeware'
   },
-  description: 'Discover premium custom apparel at Mazagk. Wear your mood with our unique collection of customizable clothing. Fast shipping, secure checkout.',
+  description: 'Discover premium custom apparel at Homeware. Wear your mood with our unique collection of customizable clothing. Fast shipping, secure checkout.',
   keywords: [
     'custom apparel',
     'personalized clothing',
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     'mood clothing',
     'customizable fashion'
   ],
-  authors: [{ name: 'Mazagk' }],
-  creator: 'Mazagk',
-  publisher: 'Mazagk',
+  authors: [{ name: 'Homeware' }],
+  creator: 'Homeware',
+  publisher: 'Homeware',
   robots: {
     index: true,
     follow: true,
@@ -43,30 +43,30 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://mazagk.vercel.app', // Use canonical domain
- siteName: 'Mazagk', // Keep site name consistent
-    title: 'Mazagk - Wear Your Mood | Premium Custom Apparel',
-    description: 'Discover premium custom apparel at Mazagk. Wear your mood with our unique collection of customizable clothing.',
+    url: 'https://Homeware.vercel.app', // Use canonical domain
+ siteName: 'Homeware', // Keep site name consistent
+    title: 'Homeware - Wear Your Mood | Premium Custom Apparel',
+    description: 'Discover premium custom apparel at Homeware. Wear your mood with our unique collection of customizable clothing.',
     images: [
       {
-        url: 'https://mazagk.vercel.app/og-image.jpg',
+        url: 'https://Homeware.vercel.app/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Mazagk - Wear Your Mood',
+        alt: 'Homeware - Wear Your Mood',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mazagk - Wear Your Mood',
-    description: 'Discover premium custom apparel at Mazagk. Wear your mood with our unique collection of customizable clothing.',
-    images: ['https://mazagk.vercel.app/og-image.jpg'], // Use same image as Open Graph for consistency and clarity
+    title: 'Homeware - Wear Your Mood',
+    description: 'Discover premium custom apparel at Homeware. Wear your mood with our unique collection of customizable clothing.',
+    images: ['https://Homeware.vercel.app/og-image.jpg'], // Use same image as Open Graph for consistency and clarity
   },
   verification: {
     google: 'your-google-verification-code',
   },
   alternates: {
-    canonical: 'https://mazagk.vercel.app',
+    canonical: 'https://Homeware.vercel.app',
   },
 };
 
@@ -100,12 +100,12 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "Mazagk",
-              "url": "https://mazagk.vercel.app",
+              "name": "Homeware",
+              "url": "https://Homeware.vercel.app",
               "description": "Premium custom apparel - Wear your mood",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://mazagk.vercel.app/search?q={search_term_string}",
+                "target": "https://Homeware.vercel.app/search?q={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             })

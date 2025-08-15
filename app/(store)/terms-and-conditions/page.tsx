@@ -4,7 +4,7 @@ const TermsAndConditionsPage = () => {
       <h1 className="text-3xl font-bold mb-4">Terms and Conditions</h1>
       <div className="prose lg:prose-xl">
         <p>
-          Welcome to Mazagk. These are the terms and conditions that will govern your use of our website.
+          Welcome to Homeware. These are the terms and conditions that will govern your use of our website.
         </p>
         <h2>Intellectual Property</h2>
         <p>

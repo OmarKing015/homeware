@@ -51,7 +51,7 @@ function Header() {
             className="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors duration-200"
           >
             {" "}
-            Mazagk{" "}
+            Homeware{" "}
           </Link>{" "}
           {/* Search Bar */}{" "}
           <div className="flex-1 max-w-2xl mx-8">
@@ -152,7 +152,7 @@ function Header() {
             className="text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors duration-200"
           >
             {" "}
-            Mazagk{" "}
+            Homeware{" "}
           </Link>{" "}
           <div className="flex items-center space-x-3">
             {" "}
