@@ -11,6 +11,7 @@ import {
   Source_Sans_3,
   Nunito,
   Poppins,
+  Inter,
   Noto_Sans_Arabic,
   Amiri,
   Cairo,
@@ -24,6 +25,12 @@ import {
   Changa,
   Reem_Kufi,
 } from "next/font/google";
+
+export const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const geist = Geist({
   variable: "--font-geist-sans",

@@ -23,6 +23,8 @@ import {
   PenIcon,
 } from "lucide-react";
 import useBasketStore from "@/store/store";
+import { DiscreetModeToggle } from "./DiscreetModeToggle";
+import { MiniCart } from "./MiniCart";
 import { useState } from "react";
 import {
   DropdownMenu,
@@ -72,22 +74,8 @@ function Header() {
           </div>{" "}
           {/* Navigation Links */}{" "}
           <div className="flex items-center space-x-4">
-            {" "}
-            {/* Basket */}{" "}
-            <Link
-              href="/basket"
-              className="relative flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
-            >
-              {" "}
-              {itemCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
-                  {" "}
-                  {itemCount}{" "}
-                </span>
-              )}{" "}
-              <ShoppingBasketIcon className="w-4 h-4" />{" "}
-              <span>Basket</span>{" "}
-            </Link>{" "}
+            <DiscreetModeToggle />
+            <MiniCart />
             {/* Customize */}{" "}
             <Link
               href="/customize"
@@ -155,7 +143,7 @@ function Header() {
             Homeware{" "}
           </Link>{" "}
           <div className="flex items-center space-x-3">
-            {" "}
+            <DiscreetModeToggle />
             {/* Basket */}{" "}
             <Link
               href="/basket"

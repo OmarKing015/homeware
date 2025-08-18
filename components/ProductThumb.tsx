@@ -2,7 +2,7 @@ import { imageUrl } from "@/lib/imageUrl";
 import type { Product } from "@/sanity.types";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, ShoppingCart } from "lucide-react";
+import { Star, ShoppingCart, Heart } from "lucide-react";
 
 function ProductThumb({ product }: { product: Product }) {
   const isOutOfStock = product?.sizes?.map((s:any)=>s.stock)?.reduce((acc:number,curr:number)=>acc+curr,0) === 0
@@ -29,10 +29,31 @@ function ProductThumb({ product }: { product: Product }) {
           </div>
         )}
 
-        {/* Quick Add to Cart Button - appears on hover */}
+        {/* Quick Action Buttons - appear on hover */}
+        {!isOutOfStock && (
+          <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                // Wishlist logic here
+              }}
+              className="bg-white text-rose-500 p-2 rounded-full shadow-lg hover:bg-rose-100 transition-colors duration-200"
+              aria-label="Add to wishlist"
+            >
+              <Heart className="h-4 w-4" />
+            </button>
+          </div>
+        )}
         {!isOutOfStock && (
           <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full shadow-lg transition-colors duration-200">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                // Add to cart logic here
+              }}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground p-2 rounded-full shadow-lg transition-colors duration-200"
+              aria-label="Add to cart"
+            >
               <ShoppingCart className="h-4 w-4" />
             </button>
           </div>

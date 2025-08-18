@@ -4,6 +4,7 @@ import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
 import { notFound } from "next/navigation"
+import { RealBodyToggle } from "./RealBodyToggle"
 import { imageUrl } from "@/lib/imageUrl"
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
@@ -96,6 +97,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 p-4 md:p-6 lg:p-8">
             {/* Enhanced Product Image Gallery */}
             <div className="space-y-4">
+              <RealBodyToggle />
               <div
                 className={`${
                   isOutOfStock ? "opacity-50" : ""
@@ -176,6 +178,9 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                       className="object-cover"
                     />
                     {selectedImage === index && <div className="absolute inset-0 bg-blue-500/20 rounded-md" />}
+                    {index === totalImages - 1 && (
+                      <Badge variant="secondary" className="absolute bottom-1 right-1 text-xs">Macro</Badge>
+                    )}
                   </div>
                 ))}
               </div>
@@ -190,6 +195,19 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               <div>
                 <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">{product.name}</h1>
                 <p className="text-gray-600 text-base md:text-lg mb-4">{product.description}</p>
+
+                {/* Sweat/Season Rating Placeholder */}
+                <div className="flex items-center gap-4 mb-4 p-3 bg-gray-100 rounded-lg">
+                  <div className="text-center">
+                    <span className="text-xl">💧</span>
+                    <p className="text-xs font-medium">Light Sweat</p>
+                  </div>
+                  <div className="text-center">
+                    <span className="text-xl">☀️</span>
+                    <p className="text-xs font-medium">All Seasons</p>
+                  </div>
+                </div>
+
                 <div className="flex items-baseline gap-2 mb-6">
                   <span className="text-4xl md:text-5xl font-bold text-gray-900">
                     {(product.price ?? 0).toFixed(2)} EGP
@@ -233,6 +251,24 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             </div>
           </div>
         </div>
+
+        {/* Sticky Add to Cart Bar for Mobile */}
+        <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t p-4 shadow-lg">
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <p className="text-sm text-gray-500">Price</p>
+              <p className="text-lg font-bold">{(product.price ?? 0).toFixed(2)} EGP</p>
+            </div>
+            <div className="flex-1">
+              {product.sizes && !selectedSize ? (
+                  <Button disabled className="w-full">Choose Size</Button>
+                ) : (
+                  <AddToBasketButton product={product} selectedSize={selectedSize} />
+              )}
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   )
