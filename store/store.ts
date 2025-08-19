@@ -2,7 +2,6 @@ import { Product } from "@/sanity.types";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import storage from "./storage";
-import { DiscreetModeSlice, createDiscreetModeSlice } from "./discreetModeStore";
 
 export interface BasketItem {
   product: Product;
@@ -11,8 +10,7 @@ export interface BasketItem {
   extraCost: number;
 }
 
-// Renaming this for clarity, as it now holds more than just basket state
-export type AppState = {
+export interface BasketState {
   items: BasketItem[];
   addItem: (product: Product, size: string, extraCost: number) => void;
   removeItem: (productId: string, size: string) => void;
@@ -20,9 +18,9 @@ export type AppState = {
   clearBasket: () => void;
   getTotalPrice: () => number;
   getGroupedItems: () => BasketItem[];
-} & DiscreetModeSlice;
+}
 
-const useBasketStore = create<AppState>()(
+const useBasketStore = create<BasketState>()(
   persist(
     (set, get) => ({
       items: [],
@@ -68,7 +66,6 @@ const useBasketStore = create<AppState>()(
         return item ? item.quantity : 0;
       },
       getGroupedItems: () => get().items,
-      ...createDiscreetModeSlice(set, get),
     }),
     {
       name: "basket-store",
