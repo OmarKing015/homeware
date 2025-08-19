@@ -3,8 +3,8 @@ import { getProductsByCategory } from "@/sanity/lib/products/getProductsByCatego
 import { ArrowLeft, Tag } from "lucide-react"
 import Link from "next/link"
 
-async function CategoryPage({ params }: { params: { slug: string } }) {
-  const { slug } = params
+async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const  slug  =(await params).slug
   const products = await getProductsByCategory(slug)
 
   const categoryName = slug
