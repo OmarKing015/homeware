@@ -46,7 +46,7 @@ export default function RootLayout({
     <ClerkProvider>
       <ContextProvider>
         <html lang="en">
-          <body
+          <body    style={{ backgroundColor: "#FAF9F6", borderColor: "#F5E9DD" }}
             className={`${geist.variable} ${geist_mono.variable} ${notoSansArabic.variable} ${amiri.variable} ${cairo.variable} ${almarai.variable} ${lalezar.variable} ${markaziText.variable} ${mada.variable} ${tajawal.variable} ${elMessiri.variable} ${lemonada.variable} ${changa.variable} ${reemKufi.variable} antialiased
  ${roboto.variable} ${openSans.variable} ${lato.variable} ${montserrat.variable} ${oswald.variable} ${playfairDisplay.variable} ${merriweather.variable} ${sourceSansPro.variable} ${nunito.variable} ${poppins.variable}`}
           >

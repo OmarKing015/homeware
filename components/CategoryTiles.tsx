@@ -1,52 +1,40 @@
 import Link from "next/link";
 import Image from "next/image";
-
-const categories = [
-  {
-    name: "Everyday Soft",
-    href: "/categories/everyday-soft",
-    imageSrc: "/placeholder-image.jpg", // Replace with actual image path
-  },
-  {
-    name: "Sculpt & Smooth",
-    href: "/categories/sculpt-smooth",
-    imageSrc: "/placeholder-image.jpg",
-  },
-  {
-    name: "No-Wire Freedom",
-    href: "/categories/no-wire-freedom",
-    imageSrc: "/placeholder-image.jpg",
-  },
-  {
-    name: "Maternity & Nursing",
-    href: "/categories/maternity-nursing",
-    imageSrc: "/placeholder-image.jpg",
-  },
-  {
-    name: "Sleep Easy",
-    href: "/categories/sleep-easy",
-    imageSrc: "/placeholder-image.jpg",
-  },
-];
-
+import { Category } from "@/sanity.types";
+import { imageUrl } from "@/lib/imageUrl";
+import { useEffect, useState } from "react";
 export function CategoryTiles() {
+  const [categories, setCategories] = useState<Category[]>([])
+  useEffect(() => {
+    const getCategories = async () => {
+      try {
+        const results = await fetch("/api/categories")
+        const data = await results.json()
+        setCategories(data)
+        console.log("Cagtegories has been fetched successfully")
+      } catch (error) {
+        console.error("Error fetching categories:" + error)
+      }
+    }
+    getCategories()
+  }, [])
   return (
-    <section className="bg-background py-12">
+    <section className="bg-background py-12"    style={{ backgroundColor: "#FAF9F6", borderColor: "#F5E9DD" }}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {categories.map((category) => (
-            <Link href={category.href} key={category.name} className="group block text-center">
-              <div className="relative overflow-hidden rounded-2xl">
-                <Image
-                  src={category.imageSrc}
-                  alt={category.name}
-                  width={400}
-                  height={500}
-                  className="object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105"
+          {categories.map((category: any) => (
+            <Link href={`/categories/${category.slug?.current}`} key={category.title} className="group block text-center">
+              <div className="relative overflow-hidden w-full h-full rounded-2xl">
+              <Image key={category.title}
+                  src={imageUrl(category.image).url() || "/placeholder.svg?height=300&width=300&query=homeware product"}
+                  alt={category.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
                 />
+
                 <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-opacity duration-300"></div>
               </div>
-              <h3 className="mt-4 text-lg font-serif">{category.name}</h3>
+              <h3 className="mt-4 text-lg font-serif">{category.title}</h3>
             </Link>
           ))}
         </div>

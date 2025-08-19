@@ -9,9 +9,7 @@ async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   if (!product) {
     return notFound()
   }
-  if(slug === "custom-tshirt"){
-    redirect("/customize")
-  }
+
 
   return <ProductDetailClient product={product} />
 }

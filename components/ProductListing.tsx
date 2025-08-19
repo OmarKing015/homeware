@@ -11,18 +11,13 @@ interface ProductListingProps {
   initialProducts: Product[];
 }
 
-export function ProductListing({ initialProducts }: ProductListingProps) {
+export function ProductListing({ initialProducts }: any) {
   const [filteredProducts, setFilteredProducts] = useState(initialProducts);
 
-  // In a real app, the filtering logic would be more complex.
-  // It would take the filter values from the <Filters /> component
-  // and apply them to the initialProducts array.
-  // For now, we just display the products.
 
   return (
     <div className="flex flex-col md:flex-row gap-8">
       <div className="md:sticky top-24 h-fit">
-        <Filters />
         <Button asChild className="w-full mt-4">
           <Link href="/fit-quiz">Find My Size</Link>
         </Button>

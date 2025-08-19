@@ -130,7 +130,7 @@ export default function PaymentPage() {
       shippingAddress: {
         street: formData.address,
         city: formData.city,
-        country: formData.country,
+        country: "Egypt",
         postalCode: formData.postalCode,
       },
       items: cartItems,
@@ -236,7 +236,7 @@ export default function PaymentPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 py-8"    style={{ backgroundColor: "#FAF9F6", borderColor: "#F5E9DD" }}>
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Checkout</h1>
@@ -347,26 +347,7 @@ export default function PaymentPage() {
                     />
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="country">Country</Label>
-                  <Select
-                    value={formData.country}
-                    onValueChange={(value) =>
-                      handleInputChange("country", value)
-                    }
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="EG">Egypt</SelectItem>
-                      <SelectItem value="SA">Saudi Arabia</SelectItem>
-                      <SelectItem value="AE">UAE</SelectItem>
-                      <SelectItem value="JO">Jordan</SelectItem>
-                      <SelectItem value="LB">Lebanon</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+            
               </CardContent>
             </Card>
 
@@ -400,22 +381,7 @@ export default function PaymentPage() {
                     </Label>
                   </div>
 
-                  <div className="flex items-center space-x-2 p-4 border rounded-lg hover:bg-gray-50 transition-colors">
-                    {/* <RadioGroupItem value="cod" id="cod" />
-                    <Label htmlFor="cod" className="flex-1 cursor-pointer">
-                      <div className="flex items-center space-x-3">
-                        <Banknote className="h-5 w-5 text-green-600" />
-                        <div>
-                          <p className="font-medium text-gray-900">
-                            Cash on Delivery
-                          </p>
-                          <p className="text-sm text-gray-600">
-                            Pay when your order arrives
-                          </p>
-                        </div>
-                      </div>
-                    </Label> */}
-                  </div>
+            
                 </RadioGroup>
 
                 {paymentMethod === "cod" && (

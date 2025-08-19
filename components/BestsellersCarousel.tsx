@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ProductThumb } from "./ProductThumb"; // Assuming a product card component exists
+import  ProductThumb  from "./ProductThumb"; // Assuming a product card component exists
 
 // Mock data based on the project brief
 const mockBestsellers = [
@@ -10,35 +10,49 @@ const mockBestsellers = [
     _id: "1",
     name: "The Everyday Bra",
     price: 60,
-    images: [{ asset: { url: "/placeholder-image.jpg" } }],
+    // images: [{ asset: { url: "/placeholder-image.jpg" } }],
+    slug: { current: "the-everyday-bra" },
+  },
+  {
+    _id: "1",
+    name: "The Everyday Bra",
+    price: 60,
+    // images: [{ asset: { url: "/placeholder-image.jpg" } }],
+    slug: { current: "the-everyday-bra" },
+  },
+  {
+    _id: "1",
+    name: "The Everyday Bra",
+    price: 60,
+    // images: [{ asset: { url: "/placeholder-image.jpg" } }],
     slug: { current: "the-everyday-bra" },
   },
   {
     _id: "2",
     name: "The Sculpt Bodysuit",
     price: 85,
-    images: [{ asset: { url: "/placeholder-image.jpg" } }],
+    // images: [{ asset: { url: "/placeholder-image.jpg" } }],
     slug: { current: "the-sculpt-bodysuit" },
   },
   {
     _id: "3",
     name: "The No-Wire Lounge Bra",
     price: 55,
-    images: [{ asset: { url: "/placeholder-image.jpg" } }],
+    // images: [{ asset: { url: "/placeholder-image.jpg" } }],
     slug: { current: "the-no-wire-lounge-bra" },
   },
   {
     _id: "4",
     name: "The Maternity Bra",
     price: 65,
-    images: [{ asset: { url: "/placeholder-image.jpg" } }],
+    // images: [{ asset: { url: "/placeholder-image.jpg" } }],
     slug: { current: "the-maternity-bra" },
   },
   {
     _id: "5",
     name: "The Silk Robe",
     price: 120,
-    images: [{ asset: { url: "/placeholder-image.jpg" } }],
+    // images: [{ asset: { url: "/placeholder-image.jpg" } }],
     slug: { current: "the-silk-robe" },
   },
 ];

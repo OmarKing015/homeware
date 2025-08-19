@@ -46,11 +46,26 @@ export function SetComposer() {
   };
 
   const addSetToCart = () => {
-    if (set.bra) addItemToBasket(set.bra as any, "M", 0);
-    if (set.brief) addItemToBasket(set.brief as any, "M", 0);
-    if (set.robe) addItemToBasket(set.robe as any, "M", 0);
-    alert("Set added to cart!");
+    Object.values(set).forEach((product) => {
+      if (product) {
+        // Important: pass each product individually with its own ID
+        addItemToBasket(
+          {
+            ...product,
+            _id: Math.random().toString(36).substring(2, 15),
+            _type: "product",
+            _createdAt: "",
+            _updatedAt: "",
+            _rev: ""
+          }, // spread to avoid reference issues
+          "M",            // size or variant
+          1               // quantity should be 1, not 0
+        );
+      }
+    });
+    alert("Your full set has been added, piece by piece 😉");
   };
+  
 
   const isSetComplete = set.bra && set.brief && set.robe;
 

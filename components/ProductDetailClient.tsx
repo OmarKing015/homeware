@@ -91,9 +91,9 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-4 md:py-8">
+    <div className="min-h-screen py-4 md:py-8" style={{ backgroundColor: "#FAF9F6" }}>
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
+        <div className="bg-white rounded-lg shadow-sm border border-[#E8C7C8]/20 overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 p-4 md:p-6 lg:p-8">
             {/* Enhanced Product Image Gallery */}
             <div className="space-y-4">
@@ -101,7 +101,8 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               <div
                 className={`${
                   isOutOfStock ? "opacity-50" : ""
-                } relative aspect-square overflow-hidden rounded-lg shadow-lg bg-gray-100 group`}
+                } relative aspect-square overflow-hidden rounded-lg shadow-lg group`}
+                style={{ backgroundColor: "#F5E9DD" }}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
@@ -125,26 +126,29 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                     <Button
                       variant="outline"
                       size="icon"
-                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 z-10"
+                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 z-10 border-[#E8C7C8]/30"
                       onClick={goToPrevImage}
                       disabled={isTransitioning}
                     >
-                      <ChevronLeft className="h-4 w-4" />
+                      <ChevronLeft className="h-4 w-4" style={{ color: "#3A3A3A" }} />
                     </Button>
                     <Button
                       variant="outline"
                       size="icon"
-                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 z-10"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 z-10 border-[#E8C7C8]/30"
                       onClick={goToNextImage}
                       disabled={isTransitioning}
                     >
-                      <ChevronRight className="h-4 w-4" />
+                      <ChevronRight className="h-4 w-4" style={{ color: "#3A3A3A" }} />
                     </Button>
                   </>
                 )}
 
                 {totalImages > 1 && (
-                  <div className="absolute bottom-4 right-4 bg-black/60 text-white px-2 py-1 rounded-md text-sm">
+                  <div
+                    className="absolute bottom-4 right-4 px-2 py-1 rounded-md text-sm text-white"
+                    style={{ backgroundColor: "rgba(58, 58, 58, 0.8)" }}
+                  >
                     {selectedImage + 1} / {totalImages}
                   </div>
                 )}
@@ -159,10 +163,21 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                   <div
                     key={index}
                     className={`relative aspect-square rounded-md overflow-hidden cursor-pointer transition-all duration-200 ${
-                      selectedImage === index
-                        ? "ring-2 ring-blue-500 scale-105"
-                        : "hover:ring-2 hover:ring-gray-300 hover:scale-102"
+                      selectedImage === index ? "scale-105" : "hover:scale-102"
                     }`}
+                    style={{
+                      border: selectedImage === index ? "2px solid #A8B5A2" : "2px solid transparent",
+                    }}
+                    onMouseEnter={(e) => {
+                      if (selectedImage !== index) {
+                        e.currentTarget.style.borderColor = "#E8C7C8"
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (selectedImage !== index) {
+                        e.currentTarget.style.borderColor = "transparent"
+                      }
+                    }}
                     onClick={() => {
                       setIsTransitioning(true)
                       setTimeout(() => {
@@ -177,48 +192,70 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                       fill
                       className="object-cover"
                     />
-                    {selectedImage === index && <div className="absolute inset-0 bg-blue-500/20 rounded-md" />}
+                    {selectedImage === index && (
+                      <div
+                        className="absolute inset-0 rounded-md"
+                        style={{ backgroundColor: "rgba(168, 181, 162, 0.2)" }}
+                      />
+                    )}
                     {index === totalImages - 1 && (
-                      <Badge variant="secondary" className="absolute bottom-1 right-1 text-xs">Macro</Badge>
+                      <Badge variant="secondary" className="absolute bottom-1 right-1 text-xs">
+                        Macro
+                      </Badge>
                     )}
                   </div>
                 ))}
               </div>
 
               {totalImages > 1 && (
-                <p className="text-sm text-gray-500 text-center md:hidden">Swipe left or right to view more images</p>
+                <p className="text-sm text-center md:hidden" style={{ color: "#3A3A3A" }}>
+                  Swipe left or right to view more images
+                </p>
               )}
             </div>
 
             {/* Product Details */}
             <div className="flex flex-col justify-between space-y-6">
               <div>
-                <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">{product.name}</h1>
-                <p className="text-gray-600 text-base md:text-lg mb-4">{product.description}</p>
+                <h1 className="text-3xl md:text-4xl font-extrabold mb-2" style={{ color: "#3A3A3A" }}>
+                  {product.name}
+                </h1>
+                <p className="text-base md:text-lg mb-4" style={{ color: "#3A3A3A", opacity: 0.8 }}>
+                  {product.description}
+                </p>
 
-                {/* Sweat/Season Rating Placeholder */}
-                <div className="flex items-center gap-4 mb-4 p-3 bg-gray-100 rounded-lg">
+                <div className="flex items-center gap-4 mb-4 p-3 rounded-lg" style={{ backgroundColor: "#F5E9DD" }}>
                   <div className="text-center">
                     <span className="text-xl">💧</span>
-                    <p className="text-xs font-medium">Light Sweat</p>
+                    <p className="text-xs font-medium" style={{ color: "#3A3A3A" }}>
+                      Light Sweat
+                    </p>
                   </div>
                   <div className="text-center">
                     <span className="text-xl">☀️</span>
-                    <p className="text-xs font-medium">All Seasons</p>
+                    <p className="text-xs font-medium" style={{ color: "#3A3A3A" }}>
+                      All Seasons
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-baseline gap-2 mb-6">
-                  <span className="text-4xl md:text-5xl font-bold text-gray-900">
+                  <span className="text-4xl md:text-5xl font-bold" style={{ color: "#3A3A3A" }}>
                     {(product.price ?? 0).toFixed(2)} EGP
                   </span>
-                  <span className="text-sm text-gray-500">Instead of</span>
-                  <span className="text-sm text-gray-500 line-through">{(product.price + 150).toFixed(2)} EGP</span>
+                  <span className="text-sm" style={{ color: "#3A3A3A", opacity: 0.6 }}>
+                    Instead of
+                  </span>
+                  <span className="text-sm line-through" style={{ color: "#3A3A3A", opacity: 0.6 }}>
+                    {(product.price + 150).toFixed(2)} EGP
+                  </span>
                 </div>
 
                 {/* Size Selection */}
                 <div className="mb-6">
-                  <h2 className="text-lg font-semibold text-gray-800 mb-3">Select Size</h2>
+                  <h2 className="text-lg font-semibold mb-3" style={{ color: "#3A3A3A" }}>
+                    Select Size
+                  </h2>
                   {product.sizes && (
                     <RadioGroup value={selectedSize} onValueChange={setSelectedSize} className="flex flex-wrap gap-3">
                       {product.sizes?.map((sizeObj) => (
@@ -228,9 +265,17 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                             id={`size-${sizeObj?.size}`}
                             disabled={sizeObj?.stock === 0}
                           />
-                          <Label htmlFor={`size-${sizeObj?.size}`} className="cursor-pointer">
+                          <Label
+                            htmlFor={`size-${sizeObj?.size}`}
+                            className="cursor-pointer"
+                            style={{ color: "#3A3A3A" }}
+                          >
                             {sizeObj?.size}
-                            {sizeObj?.stock === 0 && <span className="text-sm text-gray-500 ml-1">(Out of Stock)</span>}
+                            {sizeObj?.stock === 0 && (
+                              <span className="text-sm ml-1" style={{ color: "#3A3A3A", opacity: 0.5 }}>
+                                (Out of Stock)
+                              </span>
+                            )}
                           </Label>
                         </div>
                       ))}
@@ -240,7 +285,10 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               </div>
 
               {product.sizes && !selectedSize ? (
-                <p className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all duration-200 bg-gray-300 text-gray-500 cursor-not-allowed">
+                <p
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all duration-200 cursor-not-allowed"
+                  style={{ backgroundColor: "#E8C7C8", color: "#3A3A3A", opacity: 0.6 }}
+                >
                   Please choose a size first.
                 </p>
               ) : (
@@ -252,23 +300,30 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           </div>
         </div>
 
-        {/* Sticky Add to Cart Bar for Mobile */}
-        <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t p-4 shadow-lg">
+        <div
+          className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t p-4 shadow-lg"
+          style={{ borderColor: "#E8C7C8" }}
+        >
           <div className="flex items-center justify-between gap-4">
             <div>
-              <p className="text-sm text-gray-500">Price</p>
-              <p className="text-lg font-bold">{(product.price ?? 0).toFixed(2)} EGP</p>
+              <p className="text-sm" style={{ color: "#3A3A3A", opacity: 0.6 }}>
+                Price
+              </p>
+              <p className="text-lg font-bold" style={{ color: "#3A3A3A" }}>
+                {(product.price ?? 0).toFixed(2)} EGP
+              </p>
             </div>
             <div className="flex-1">
               {product.sizes && !selectedSize ? (
-                  <Button disabled className="w-full">Choose Size</Button>
-                ) : (
-                  <AddToBasketButton product={product} selectedSize={selectedSize} />
+                <Button disabled className="w-full">
+                  Choose Size
+                </Button>
+              ) : (
+                <AddToBasketButton product={product} selectedSize={selectedSize} />
               )}
             </div>
           </div>
         </div>
-
       </div>
     </div>
   )

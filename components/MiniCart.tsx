@@ -6,7 +6,7 @@ import useBasketStore from "@/store/store";
 import { ShoppingBasketIcon } from "lucide-react";
 import Link from "next/link";
 
-const FREE_SHIPPING_THRESHOLD = 500; // Example value
+const FREE_SHIPPING_THRESHOLD = 1500; // Example value
 
 export function MiniCart() {
   const { items, getTotalPrice } = useBasketStore();
@@ -19,7 +19,7 @@ export function MiniCart() {
         <div className="relative">
           <ShoppingBasketIcon className="w-6 h-6" />
           {items.length > 0 && (
-            <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full h-5 w-5 flex items-center justify-center text-xs">
+            <span className="absolute -top-2 -left-2 bg-primary text-primary-foreground rounded-full h-5 w-5 flex items-center justify-center text-xs">
               {items.length}
             </span>
           )}
@@ -35,7 +35,8 @@ export function MiniCart() {
             {items.map(item => (
               <div key={item.product._id} className="flex gap-4">
                 {/* Image placeholder */}
-                <div className="w-16 h-16 bg-gray-200 rounded-md"></div>
+                {/* <div className="w-16 h-16 bg-gray-200 rounded-md"></div> */} 
+
                 <div className="flex-1">
                   <p className="font-semibold">{item.product.name}</p>
                   <p className="text-sm text-muted-foreground">Qty: {item.quantity}</p>
@@ -56,7 +57,6 @@ export function MiniCart() {
             </div>
             {/* Actions */}
             <Button asChild className="w-full"><Link href="/basket">View Full Cart</Link></Button>
-            <Button className="w-full" variant="secondary">Proceed to Checkout</Button>
           </div>
         ) : (
           <p className="text-center text-muted-foreground py-8">Your cart is empty.</p>
