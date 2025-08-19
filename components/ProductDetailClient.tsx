@@ -14,22 +14,22 @@ import { Label } from "@/components/ui/label"
 import AddToBasketButton from "@/components/AddToBasketButton"
 import type { Product } from "@/sanity.types"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { useAppContext } from "@/context/context"
 
 interface ProductDetailClientProps {
   product: Product
 }
+interface Sizes 
+{ size?: string | undefined; stock?: number | undefined; _key: string; }
 
 export default function ProductDetailClient({ product }: ProductDetailClientProps) {
   const [selectedImage, setSelectedImage] = useState(0)
   const [selectedSize, setSelectedSize] = useState<string>("")
   const [isTransitioning, setIsTransitioning] = useState(false)
-  const { extraCost, setExtraCost } = useAppContext()
   const touchStartX = useRef<number>(0)
   const touchEndX = useRef<number>(0)
 
   const isOutOfStock =
-    product?.sizes?.map((s: any) => s.stock)?.reduce((acc: number, curr: number) => acc + curr, 0) === 0
+    product?.sizes?.map((s: Sizes) => s?.stock ?? 0).reduce((acc: number , curr: number ) => acc + curr, 0) === 0
 
   const totalImages = product.images?.length || 0
 

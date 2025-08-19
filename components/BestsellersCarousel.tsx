@@ -74,7 +74,7 @@ export function BestsellersCarousel() {
                 key={product._id}
               >
                 {/* The ProductThumb component will need to accept this data structure */}
-                <ProductThumb product={product as any} />
+                <ProductThumb product={product as never} />
               </div>
             ))}
           </div>

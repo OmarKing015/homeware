@@ -3,7 +3,7 @@
 import AddToBasketButton from "@/components/AddToBasketButton"
 import Loader from "@/components/loader"
 import { imageUrl } from "@/lib/imageUrl"
-import useBasketStore from "@/store/store"
+import useBasketStore, { BasketItem } from "@/store/store"
 import { SignInButton, useAuth } from "@clerk/nextjs"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
@@ -11,11 +11,7 @@ import { useEffect, useState } from "react"
 import { ShoppingCart, Package, CreditCard, ArrowRight, Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-interface StockData {
-  [productId: string]: {
-    stock: number
-  }
-}
+
 
 function BasketPage() {
   const groupedItems = useBasketStore((state) => state.getGroupedItems())
@@ -24,10 +20,9 @@ function BasketPage() {
   const router = useRouter()
   const [isClient, setIsClient] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [stockData, setStockData] = useState<StockData>({})
   const [isCheckoutDisabled, setIsCheckoutDisabled] = useState(true)
 
-  const getBulkPrice = (item: any) => {
+  const getBulkPrice = (item: BasketItem) => {
     const customTshirtCount = groupedItems
       .filter((cartItem) => cartItem.product.name?.toLowerCase().includes("custom t-shirt"))
       .reduce((total, cartItem) => total + cartItem.quantity, 0)
@@ -86,7 +81,6 @@ function BasketPage() {
 
   const totalItems = groupedItems.reduce((total, item) => total + item.quantity, 0)
   const totalPrice = calculateTotalPrice()
-  const shipping = 90
   // const tax = totalPrice * 0.14 // 14% tax
   const finalTotal = totalPrice 
 
@@ -197,11 +191,6 @@ function BasketPage() {
                       <AddToBasketButton selectedSize={item.size} product={item.product} />
                     </div>
                   </div>
-                  {stockData[item.product._id] && stockData[item.product._id].stock < item.quantity && (
-                    <p className="text-red-600 text-sm mt-2">
-                      Only {stockData[item.product._id].stock} items available in stock.
-                    </p>
-                  )}
                 </div>
               )
             })}

@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import { Label } from "./ui/label";
-import Link from "next/link";
 
 // English version
 const quizStepsEn = [
