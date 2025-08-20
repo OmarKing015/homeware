@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold text-lg mb-4">Homeware</h3>
+            <h3 className="font-bold text-lg mb-4">Talia</h3>
             <p className="text-gray-400">Wear Your Mood</p>
           </div>
           <div>
@@ -47,7 +47,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-center text-gray-500 mt-8 pt-8 border-t border-gray-700">
-          <p>&copy; {new Date().getFullYear()} Homeware. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Talia. All rights reserved.</p>
         </div>
       </div>
     </footer>

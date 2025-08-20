@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Category } from "@/sanity.types";
 import { imageUrl } from "@/lib/imageUrl";
 import { useEffect, useState } from "react";
+import { urlFor } from "@/sanity/lib/image";
 export function CategoryTiles() {
   const [categories, setCategories] = useState<Category[]>([]);
   useEffect(() => {
@@ -29,22 +30,20 @@ export function CategoryTiles() {
             <Link
               href={`/categories/${category.slug?.current}`}
               key={category.title}
-              className="group block text-center"
+              className="group  text-center"
             >
-              <div className="relative overflow-hidden w-full h-full rounded-2xl">
+              <div className="relative aspect-square overflow-hidden w-full h-full rounded-2xl">
                 {category.image && (
                   <Image
-                    src={imageUrl(category.image)?.url()}
+                    src={urlFor(category.image).url()}
                     alt={`Image for ${category.title}`}
-                    className="object-contain transition-transform duration-300 group-hover:scale-105"
+                    className="object-fill relative w-full h-full transition-transform duration-300 group-hover:scale-105"
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 150vw, (max-width: 1200px) 70vw, 44vw"
                   />
                 )}
-
-                <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-opacity duration-300"></div>
               </div>
-              <h3 className="mt-4 text-lg font-serif">{category.title}</h3>
+              <h3 className="mt-4 text-lg font-serif">{category.title} </h3>
             </Link>
           ))}
         </div>

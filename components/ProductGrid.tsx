@@ -43,7 +43,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
             <div className="relative aspect-square overflow-hidden" style={{ backgroundColor: "#F5E9DD" }}>
               {product.images && product.images[0] ? (
                 <Image
-                  src={imageUrl(product.images[0]).url() || "/placeholder.svg?height=300&width=300&query=homeware product"}
+                  src={imageUrl(product.images[0]).url() || "/placeholder.svg?height=300&width=300&query=Talia product"}
                   alt={product.name}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-300"

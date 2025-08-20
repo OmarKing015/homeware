@@ -15,6 +15,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://Homeware.vercel.app/sitemap.xml',
+    sitemap: 'https://Talia.vercel.app/sitemap.xml',
   }
 }

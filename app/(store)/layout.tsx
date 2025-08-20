@@ -33,7 +33,7 @@ import { ContextProvider } from "@/context/context";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Homeware",
+  title: "Talia",
   description: "Wear Your Mood",
 };
 

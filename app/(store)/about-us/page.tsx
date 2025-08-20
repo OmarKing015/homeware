@@ -4,7 +4,7 @@ const AboutUsPage = () => {
       <h1 className="text-3xl font-bold mb-4">About Us</h1>
       <div className="prose lg:prose-xl">
         <p>
-          Welcome to Homeware! We are a company dedicated to providing the best products and services to our customers.
+          Welcome to Talia! We are a company dedicated to providing the best products and services to our customers.
         </p>
         <h2>Our Mission</h2>
         <p>

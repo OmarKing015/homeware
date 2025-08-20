@@ -7,10 +7,10 @@ import { inter, playfairDisplay } from '@/public/fonts'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Homeware - Wear Your Mood | Premium Custom Apparel',
-    template: '%s | Homeware'
+    default: 'Talia - Wear Your Mood | Premium Custom Apparel',
+    template: '%s | Talia'
   },
-  description: 'Discover premium custom apparel at Homeware. Wear your mood with our unique collection of customizable clothing. Fast shipping, secure checkout.',
+  description: 'Discover premium custom apparel at Talia. Wear your mood with our unique collection of customizable clothing. Fast shipping, secure checkout.',
   keywords: [
     'custom apparel',
     'personalized clothing',
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     'mood clothing',
     'customizable fashion'
   ],
-  authors: [{ name: 'Homeware' }],
-  creator: 'Homeware',
-  publisher: 'Homeware',
+  authors: [{ name: 'Talia' }],
+  creator: 'Talia',
+  publisher: 'Talia',
   robots: {
     index: true,
     follow: true,
@@ -37,30 +37,30 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://Homeware.vercel.app', // Use canonical domain
- siteName: 'Homeware', // Keep site name consistent
-    title: 'Homeware - Wear Your Mood | Premium Custom Apparel',
-    description: 'Discover premium custom apparel at Homeware. Wear your mood with our unique collection of customizable clothing.',
+    url: 'https://Talia.vercel.app', // Use canonical domain
+ siteName: 'Talia', // Keep site name consistent
+    title: 'Talia - Wear Your Mood | Premium Custom Apparel',
+    description: 'Discover premium custom apparel at Talia. Wear your mood with our unique collection of customizable clothing.',
     images: [
       {
-        url: 'https://Homeware.vercel.app/og-image.jpg',
+        url: 'https://Talia.vercel.app/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Homeware - Wear Your Mood',
+        alt: 'Talia - Wear Your Mood',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Homeware - Wear Your Mood',
-    description: 'Discover premium custom apparel at Homeware. Wear your mood with our unique collection of customizable clothing.',
-    images: ['https://Homeware.vercel.app/og-image.jpg'], // Use same image as Open Graph for consistency and clarity
+    title: 'Talia - Wear Your Mood',
+    description: 'Discover premium custom apparel at Talia. Wear your mood with our unique collection of customizable clothing.',
+    images: ['https://Talia.vercel.app/og-image.jpg'], // Use same image as Open Graph for consistency and clarity
   },
   verification: {
     google: 'your-google-verification-code',
   },
   alternates: {
-    canonical: 'https://Homeware.vercel.app',
+    canonical: 'https://Talia.vercel.app',
   },
 };
 
@@ -88,12 +88,12 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "Homeware",
-              "url": "https://Homeware.vercel.app",
+              "name": "Talia",
+              "url": "https://Talia.vercel.app",
               "description": "Premium custom apparel - Wear your mood",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://Homeware.vercel.app/search?q={search_term_string}",
+                "target": "https://Talia.vercel.app/search?q={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             })

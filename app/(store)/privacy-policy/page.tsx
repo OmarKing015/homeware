@@ -10,8 +10,8 @@ const PrivacyPolicy = () => {
       </p>
 
       <p className="mb-4 text-gray-700">
-        This Privacy Policy describes how <strong>https://Homeware.vercel.app</strong> ("we", "us", or "our") collects, uses,
-        and protects your personal data when you use our website located at  <strong>https://Homeware.vercel.app</strong> and all
+        This Privacy Policy describes how <strong>https://Talia.vercel.app</strong> ("we", "us", or "our") collects, uses,
+        and protects your personal data when you use our website located at  <strong>https://Talia.vercel.app</strong> and all
         related services (collectively, the "Services").
       </p>
 

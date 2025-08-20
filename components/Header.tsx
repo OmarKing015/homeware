@@ -29,7 +29,7 @@ function Header() {
             onMouseEnter={(e) => (e.currentTarget.style.color = "#A8B5A2")}
             onMouseLeave={(e) => (e.currentTarget.style.color = "#D77A61")}
           >
-            Homeware
+            Talia
           </Link>
 
           {/* Search Bar */}
@@ -39,10 +39,10 @@ function Header() {
                 <Search
                   className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4"
                   style={{ color: "#A8B5A2" }}
-                />
+                /> 
                 <input
                   type="text"
-                  placeholder="Search for beautiful homeware..."
+                  placeholder="Search for beautiful Talia..."
                   className="w-full pl-10 pr-4 py-3 border rounded-lg transition-all duration-200 focus:ring-2 focus:border-transparent"
                   style={{
                     backgroundColor: "#F5E9DD",
@@ -129,7 +129,7 @@ function Header() {
             onMouseEnter={(e) => (e.currentTarget.style.color = "#A8B5A2")}
             onMouseLeave={(e) => (e.currentTarget.style.color = "#D77A61")}
           >
-            Homeware
+            Talia
           </Link>
 
           <div className="flex items-center space-x-3">
@@ -195,7 +195,7 @@ function Header() {
               />
               <input
                 type="text"
-                placeholder="Search for beautiful homeware..."
+                placeholder="Search for beautiful Talia..."
                 className="w-full pl-10 pr-4 py-3 border rounded-lg transition-all duration-200 focus:ring-2 focus:border-transparent"
                 style={{
                   backgroundColor: "#F5E9DD",
