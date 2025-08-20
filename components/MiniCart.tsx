@@ -16,7 +16,7 @@ export function MiniCart() {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <div className="relative">
+        <div className="relative bg-white">
           <ShoppingBasketIcon className="w-6 h-6" />
           {items.length > 0 && (
             <span className="absolute -top-2 -left-2 bg-primary text-primary-foreground rounded-full h-5 w-5 flex items-center justify-center text-xs">
