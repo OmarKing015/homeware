@@ -23,7 +23,7 @@ export function HeroSection() {
           <Button asChild size="lg" className=" bg-gray-900 animate-pulse" variant="destructive">
             <Link href="/search?query=bestsellers">Shop Bestsellers</Link>
           </Button>
-          <Button size="lg" className="bg-white animate-bounce mt-6 text-black" variant="outline">
+          <Button size="lg" className="bg-white animate-bounce text-black" variant="outline">
             <Link href="/set-composer">Buy a Full package</Link>
           </Button>
         </div>

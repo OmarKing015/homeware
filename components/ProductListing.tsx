@@ -1,15 +1,7 @@
 "use client";
 
-import { Product } from "@/sanity.types";
-import { useState, useEffect } from "react";
-import { Filters } from "./Filters";
+import { useState } from "react";
 import ProductGrid from "./ProductGrid";
-import { Button } from "./ui/button";
-import Link from "next/link";
-
-interface ProductListingProps {
-  initialProducts: Product[];
-}
 
 export function ProductListing({ initialProducts }: any) {
   const [filteredProducts, setFilteredProducts] = useState(initialProducts);
