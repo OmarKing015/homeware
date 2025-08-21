@@ -64,9 +64,8 @@ function Header() {
             <MiniCart />
 
          
-            {/* Design Control */}
-            <Protect role="admin">
-              <Button variant="secondary">
+    
+         {user?.publicMetadata.role === "admin" &&     <Button variant="secondary">
                 <p
                   className="relative flex items-center space-x-2 font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
                   style={{ backgroundColor: "#3A3A3A", color: "white" }}
@@ -76,8 +75,8 @@ function Header() {
                   <Link href="/studio">Admin</Link>
                 </p>
               </Button>
-            </Protect>
-
+          
+}
             {/* Orders & Auth */}
             <ClerkLoaded>
               <SignedIn>
@@ -155,8 +154,8 @@ function Header() {
       
        
             {/* Design Control */}
-            <Protect role="admin">
-              <Button variant="secondary">
+      
+            {user?.publicMetadata.role === "admin" &&   <Button variant="secondary">
                 <p
                   className="relative flex items-center space-x-2 font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
                   style={{ backgroundColor: "#3A3A3A", color: "white" }}
@@ -167,8 +166,8 @@ function Header() {
                     <PenIcon className="w-5 h-5" />
                   </Link>
                 </p>
-              </Button>
-            </Protect>
+              </Button>}
+           
 
             <ClerkLoaded>{user ? <UserButton /> : <SignInButton mode="modal" />}</ClerkLoaded>
 
@@ -219,7 +218,7 @@ function Header() {
      
               <ClerkLoaded>
                 <SignedIn>
-                  <Protect role="admin"></Protect>
+          
                   <Link
                     href="/orders"
                     className="flex items-center space-x-3 py-3 px-4 rounded-lg transition-all duration-200"
