@@ -20,8 +20,8 @@ export function HeroSection() {
           {/* <Button asChild varient="default" size="lg">
             <Link href="/fit-quiz">Find My Fit</Link>
           </Button> */}
-          <Button asChild size="lg" className=" bg-gray-900 animate-pulse" variant="destructive">
-            <Link href="/search?query=bestsellers">Shop Bestsellers</Link>
+          <Button asChild size="lg" className=" bg-gray-900 text-white animate-pulse" variant="destructive">
+            <Link href="/search?query=bestseller">Shop Bestsellers</Link>
           </Button>
           <Button size="lg" className="bg-white animate-bounce text-black" variant="outline">
             <Link href="/set-composer">Buy a Full package</Link>

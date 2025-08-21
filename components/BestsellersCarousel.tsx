@@ -2,13 +2,13 @@
 
 import useEmblaCarousel from "embla-carousel-react";
 import ProductThumb from "./ProductThumb"; // Assuming a product card component exists
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { getProductByAPArtOFSlug } from "@/sanity/lib/products/getProductByAPartOfSlug";
 import { Product } from "@/sanity.types";
-
+import Autoplay from "embla-carousel-autoplay";
 
 export function BestsellersCarousel() {
-  const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" });
+ const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [Autoplay()]);
   const [bestsellers, setBestSellers] = useState<Product[]>([]);
   useEffect(() => {
     const getProducts = async () => {
