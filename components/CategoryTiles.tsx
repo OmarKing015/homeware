@@ -29,7 +29,7 @@ export function CategoryTiles() {
       className="bg-background py-12"
       style={{ backgroundColor: "#FAF9F6", borderColor: "#F5E9DD" }}
     >
-      <div ref={emblaRef} className="container flex mx-auto px-4">
+      <div ref={emblaRef} className="container mx-auto px-4">
         <div  className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {categories.map((category: any) => (
             <Link
