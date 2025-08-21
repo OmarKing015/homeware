@@ -43,7 +43,7 @@ let total = amount * 100
       body: JSON.stringify({
         amount : amount ,  // in EGP
         currency:"EGP",
-        payment_methods: [12 , "card", 5229892,5234899 ], // adjust to your enabled methods
+        payment_methods: [12 , "card", 5242096], // adjust to your enabled methods
         items: items.map((item: any) => ({
           name: item.name || "Product",
           amount: item.price,
@@ -102,10 +102,10 @@ let total = amount * 100
         },
         _key: `variant-${item.product._key}`,
         quantity: item.quantity,
-        price: item.price,
+        price: item.price / 100,
         size: item.size,
       })),
-      totalAmount: amount,
+      totalAmount: amount / 100,
       paymentStatus: "pending" as const,
       paymentMethod: "paymob",
       paymobOrderId: intentionId, // now matches your interface

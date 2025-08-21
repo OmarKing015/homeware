@@ -6,7 +6,7 @@ import useBasketStore from "@/store/store";
 import { ShoppingBasketIcon } from "lucide-react";
 import Link from "next/link";
 
-const FREE_SHIPPING_THRESHOLD = 1500; // Example value
+const FREE_SHIPPING_THRESHOLD = 500; // Example value
 
 export function MiniCart() {
   const { items, getTotalPrice } = useBasketStore();
@@ -25,7 +25,7 @@ export function MiniCart() {
           )}
         </div>
       </DrawerTrigger>
-      <DrawerContent className="w-full md:w-96 p-4">
+      <DrawerContent className="w-full bg-white md:w-96 p-4">
         <DrawerHeader>
           <DrawerTitle>Your Cart</DrawerTitle>
         </DrawerHeader>
@@ -56,7 +56,7 @@ export function MiniCart() {
               </div>
             </div>
             {/* Actions */}
-            <Button asChild className="w-full"><Link href="/basket">View Full Cart</Link></Button>
+            <Button asChild className="w-full" variant="link"><Link href="/basket">View Full Cart</Link></Button>
           </div>
         ) : (
           <p className="text-center text-muted-foreground py-8">Your cart is empty.</p>

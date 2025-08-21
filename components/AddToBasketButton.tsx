@@ -57,7 +57,7 @@ function AddToBasketButton({
         className={`w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all duration-200 ${
           isDisabled
             ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-            : "bg-blue-600 hover:bg-blue-700  text-white shadow-md hover:shadow-lg transform hover:scale-[1.02]"
+            : "bg-pink-500 hover:bg-pink-700  text-white shadow-md hover:shadow-lg transform hover:scale-[1.02]"
         } ${isAdding ? "scale-95" : ""}`}
       >
         <ShoppingCart className="h-4 w-4" />
@@ -91,7 +91,7 @@ function AddToBasketButton({
           className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 shadow-sm ${
             isSelectedSizeOutOfStock
               ? "bg-gray-200 border border-gray-200 cursor-not-allowed"
-              : "bg-blue-600 hover:bg-blue-700 border border-blue-600"
+              : "bg-pink-500 hover:bg-blue-700 border border-pink-500"
           } ${isAdding ? "scale-95" : ""}`}
         >
           <Plus

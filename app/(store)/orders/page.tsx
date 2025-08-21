@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { imageUrl } from "@/lib/imageUrl";
 import Image from "next/image";
+import { Order } from "@/sanity.types";
 
 async function OrdersPage() {
   const { userId } = await auth();
@@ -95,6 +96,7 @@ async function OrdersPage() {
     };
     return badges[status as keyof typeof badges] || "bg-gray-600 text-white";
   };
+  console.log(groupedOrders)
 
   const calculateOrderStats = () => {
     const total = orders.length;
@@ -258,7 +260,7 @@ async function OrdersPage() {
                   </div>
 
                   <div className="space-y-4">
-                    {groupedOrders[status].map((order: any) => (
+                    {groupedOrders[status].map((order: Order) => (
                       <div
                         key={order._id}
                         className={`bg-white border-l-4 ${config.color} shadow-sm`}
@@ -272,7 +274,7 @@ async function OrdersPage() {
                                   {order.orderId}
                                 </h3>
                                 <p className="text-xs text-gray-500">
-                                  {new Date(order.createdAt).toLocaleDateString(
+                                  {new Date(order.createdAt ? order.createdAt : "")?.toLocaleDateString(
                                     "en-US",
                                     {
                                       year: "numeric",
@@ -296,7 +298,7 @@ async function OrdersPage() {
                                     : "Card"}
                                 </span>
                               </div>
-                              <span
+                              {      order.paymentStatus &&<span
                                 className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getPaymentStatusBadge(
                                   order.paymentStatus
                                 )}`}
@@ -304,11 +306,12 @@ async function OrdersPage() {
                                 {order.paymentStatus
                                   .replace("_", " ")
                                   .toUpperCase()}
-                              </span>
+                              </span> }
+                              
                             </div>
                             <div className="flex items-center space-x-4">
                               <span className="text-lg font-bold text-gray-900">
-                                {order.totalAmount.toFixed(2)} EGP
+                                {order.totalAmount && order.totalAmount.toFixed(2)} EGP
                               </span>
                               <button className="text-gray-400 hover:text-gray-600">
                                 <Eye className="h-4 w-4" />
@@ -419,7 +422,7 @@ async function OrdersPage() {
                                       Cash on Delivery
                                     </p>
                                     <p className="text-xs text-amber-700 mt-1">
-                                      Payment of {order.totalAmount.toFixed(2)}{" "}
+                                      Payment of {order.totalAmount?.toFixed(2)}{" "}
                                       EGP due upon delivery
                                     </p>
                                   </div>

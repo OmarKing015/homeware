@@ -6,8 +6,8 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold text-lg mb-4">Talia</h3>
-            <p className="text-gray-400">Wear Your Mood</p>
+            <h3 className="font-bold text-lg mb-4">Talia Store</h3>
+            <p className="text-gray-400">Wear Your Comfort</p>
           </div>
           <div>
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
@@ -41,13 +41,13 @@ const Footer = () => {
           </div>
           <div>
             <h3 className="font-bold text-lg mb-4">Contact Us</h3>
-            <p className="text-gray-400">Email: yebrahim086@gmail.com</p>
-            <p className="text-gray-400">Phone Number: +201204167144</p>
-            <p className="text-gray-400">Address: Victoria Alexandria Egypt</p>
+            <p className="text-gray-400">Email: daliahamdy443@gmail.com</p>
+            <p className="text-gray-400">Phone Number: +201010965572</p>
+            <p className="text-gray-400">Address: Abas-Elaqad Nasr City Cairo Egypt</p>
           </div>
         </div>
         <div className="text-center text-gray-500 mt-8 pt-8 border-t border-gray-700">
-          <p>&copy; {new Date().getFullYear()} Talia. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Talia Store. All rights reserved.</p>
         </div>
       </div>
     </footer>

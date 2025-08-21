@@ -10,6 +10,12 @@ export async function getMyOrders(userId: string) {
         _id,
         orderId,
         customerName,
+        customerEmail,
+        customerPhone,
+        customerAddress,
+        customerCity,
+        customerCountry,
+        customerPostalCode,
         totalAmount,
         paymentStatus,
         paymentMethod,
@@ -21,7 +27,7 @@ export async function getMyOrders(userId: string) {
           product-> {
             _id,
             name,
-            image
+            images
           }
         }
       }`);
